@@ -33,6 +33,7 @@ public class ResquestHotmart {
                 .get(Medication.class);
                 */
 		
+		
 		List<Product> produtos = null; 
 
 		for (int page = 1; page < 500; page++) {

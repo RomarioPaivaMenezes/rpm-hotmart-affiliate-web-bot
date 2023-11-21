@@ -7,7 +7,6 @@ import org.json.JSONObject;
 
 import rpm.hotmart.domain.product.AffiliationType;
 import rpm.hotmart.domain.product.Product;
-import rpm.hotmart.service.research.AuthenticationParameters;
 import rpm.hotmart.service.research.HotmartResearchClient;
 import rpm.hotmart.service.research.ResearchOrderBy;
 import rpm.hotmart.service.research.ResearchParametersManager;
@@ -18,15 +17,14 @@ public class StartResearchApp {
 	
 	public static void main(String[] args) {
 		
-		AuthenticationParameters authenticationParameters = new AuthenticationParameters("sessionId", "berear");
-		AppManager appManager = new AppManager(ResearchOrderBy.HOTTEST, authenticationParameters,  new ResearchParametersManager());
+		AppManager appManager = new AppManager(ResearchOrderBy.HOTTEST, new ResearchParametersManager());
 		
 		List<Product> products = null; 
-		JSONObject jSONObject = HotmartResearchClient.startAfilianteResearch(null,1);
+		JSONObject jSONObject = HotmartResearchClient.startAfilianteResearch(appManager,1);
 		int page = jSONObject.getInt("totalPages");
 		
 		for (int i = 1; i < page; i++) {
-			JSONObject responseResearch =  HotmartResearchClient.startAfilianteResearch(null, i);
+			JSONObject responseResearch =  HotmartResearchClient.startAfilianteResearch(appManager, i);
 			products = ProductResearchUtil.parseJsonProdutosToObject(responseResearch, products, negativeProduct);
 		}
 		

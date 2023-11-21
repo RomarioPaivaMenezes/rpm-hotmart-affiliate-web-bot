@@ -2,21 +2,23 @@ package rpm.hotmart;
 
 import org.json.JSONObject;
 
-import rpm.hotmart.service.research.AuthenticationParameters;
 import rpm.hotmart.service.research.HotmartURLs;
 import rpm.hotmart.service.research.ResearchOrderBy;
 import rpm.hotmart.service.research.ResearchParametersManager;
+import rpm.hotmart.service.research.authentication.AuthenticationParameters;
+import rpm.hotmart.service.research.authentication.CredendialsServer;
 
 public class AppManager {
 
 	private ResearchOrderBy researchOrder = null;
-	private AuthenticationParameters authenticationParameters = null;
+	private AuthenticationParameters authenticationParameters = new AuthenticationParameters();
 	private ResearchParametersManager researchParametersManager = null;
 	
-	public AppManager(ResearchOrderBy researchOrder, AuthenticationParameters authenticationParameters, ResearchParametersManager researchParametersManager) {
+	public AppManager(ResearchOrderBy researchOrder, ResearchParametersManager researchParametersManager) {
 		this.researchOrder = researchOrder;
-		this.authenticationParameters = authenticationParameters;
 		this.researchParametersManager = researchParametersManager;
+		CredendialsServer CredendialsServer = new CredendialsServer();
+		CredendialsServer.getCredentials(this);
 	}
 
 	//All parameters for research. OBS: there may be others
@@ -60,6 +62,13 @@ public class AppManager {
 	 */
 	public AuthenticationParameters getAuthenticationParameters() {
 		return authenticationParameters;
+	}
+	
+	/**
+	 * @param authenticationParameters the authenticationParameters to set
+	 */
+	public void setAuthenticationParameters(AuthenticationParameters authenticationParameters) {
+		this.authenticationParameters = authenticationParameters;
 	}
 
 	/**
