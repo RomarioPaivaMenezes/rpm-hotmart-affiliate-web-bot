@@ -3,25 +3,51 @@
   <groupId>rpm-hotmart-affiliate-web-bot</groupId>
   <artifactId>rpm-hotmart-affiliate-web-bot</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
-   <properties>
-	    <maven.compiler.release>17</maven.compiler.release>
-   </properties>
-     <!-- homartclient !-->
   <dependencies>
-	
+		
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit -->
 		<dependency>
-		    <groupId>javax.ws.rs</groupId>
-		    <artifactId>javax.ws.rs-api</artifactId>
-		    <version>2.1.1</version>
+    		<groupId>org.htmlunit</groupId>
+    		<artifactId>htmlunit</artifactId>
+    		<version>3.6.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.13.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-text</artifactId>
+		    <version>1.11.0</version>
+		</dependency>
+		
+ 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpmime</artifactId>
+		    <version>4.5.14</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jakarta.ws.rs/jakarta.ws.rs-api -->
+		<dependency>
+		    <groupId>jakarta.ws.rs</groupId>
+		    <artifactId>jakarta.ws.rs-api</artifactId>
+		    <version>3.1.0</version>
 		</dependency>
 	
-        <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-client</artifactId>
-            <version>2.24.1</version>
-        </dependency>
-        
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		<dependency>
+		    <groupId>jakarta.servlet</groupId>
+		    <artifactId>jakarta.servlet-api</artifactId>
+		    <version>6.0.0</version>
+		    <scope>provided</scope>
+		</dependency>
+
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
@@ -64,4 +90,9 @@
 	  	<version>0.2.1</version>
 	  </dependency>
   </dependencies>
+  
+    <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
 </project>
